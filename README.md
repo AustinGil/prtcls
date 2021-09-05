@@ -9,7 +9,7 @@ import { prtcls } from 'prtcls'
 const classList = prtcls(`
   padding: 10px;
   background: purple;
-`}
+`)
 console.log(classList)
 ```
 ```css
