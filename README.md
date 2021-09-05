@@ -42,9 +42,9 @@ Features:
 - Supports [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 - Supports media queries without duplication.
 - Define reusable variables, design tokens, or components.
-- Define styles with a [JS Style Object](https://www.w3schools.com/jsref/dom_obj_style.asp), a string of CSS, or a callback function* that returns either.
+- Define styles with a [JS Style Object](https://www.w3schools.com/jsref/dom_obj_style.asp), a string of CSS, or a callback function** that returns either.
 
-* Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
+\** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
 
 <!-- ## How it works
 
