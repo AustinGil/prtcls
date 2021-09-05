@@ -6,11 +6,15 @@ Before transpiling:
 ```js
 // your JavaScript file
 import { prtcls } from 'prtcls'
-const classList = prtcls(`
+const btnRedClasses = prtcls(`
   padding: 10px;
-  background: purple;
+  background: red;
 `)
-console.log(classList)
+const btnBlueClasses = prtcls(`
+  padding: 10px;
+  background: blue;
+`)
+console.log(btnRedClasses, btnBlueClasses)
 ```
 ```css
 /* prtcls.css */
@@ -18,24 +22,28 @@ console.log(classList)
 After transpiling:
 ```js
 // your JavaScript file
-const classList = 'p_10px bg_purple'
-console.log(classList)
+const btnRedClasses = 'p_10px bg_purple'
+const btnBlueClasses = 'p_10px bg_blue'
+console.log(btnRedClasses, btnBlueClasses)
 ```
 ```css
 /* prtcls.css */
 .p_10px {
   padding: 10px;
 }
-.bg_purple {
-  background: purple;
+.bg_red {
+  background: red;
+}
+.bg_blue {
+  background: blue;
 }
 ```
 
 Benefits:
-- It's really easy to learn. You just need to call a JavaScript function. The rest is CSS.
+- If you know CSS, you know already know how to use the library. Just pass that into the funciton.
 - You can use any valid CSS that you want. You don't have to work within a limited set (unless you want to).
-- It has no JavaScript runtime dependencies. It get's transpiled away.
-- Removes any duplicated CSS so you never have the same rules twice.
+- All the runtime dependencies gets transpiled away which means your app loads faster and no flash of unstyled content.
+- Removes any duplicated CSS so you never have the same rules twice. The more your app grows, the more you save.
 - It has TypeScript support which provides intellisense to help know when you write something wrong.
 
 Features:
