@@ -1,6 +1,6 @@
-# PRTCLS (Particles): Atomic CSS-in-JS
+# Particles CSS
 
-An atomic CSS-in-JS library with zero runtime overhead. Pass in any CSS you want and it spits out a string of atomic/utility CSS classes. At build time, the library is transpiled away and you're left with a static string and a CSS file with only the styles you need.
+An atomic CSS-in-JS library with zero runtime overhead.
 
 Before transpiling:
 ```js
@@ -54,7 +54,8 @@ Features:
 
 \** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
 
-<!-- ## How it works
+## How it works
 
-Write your CSS properties as a JavaScript style object or as a string. At build time those style definitions get replaced with a string of corresponding classes based on the associated media query, pseudo selector, property, and value. These classes are added to a CSS file 
- -->
+The library accespt any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
+<!-- These classes are added to a CSS file  -->
+
