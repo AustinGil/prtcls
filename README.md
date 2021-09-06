@@ -51,6 +51,7 @@ Features:
 - Supports media queries without duplication.
 - Define reusable variables, design tokens, or components.
 - Define styles with a [JS Style Object](https://www.w3schools.com/jsref/dom_obj_style.asp), a string of CSS, or a callback function** that returns either.
+- Famework agnostic.
 
 \** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
 
