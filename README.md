@@ -55,7 +55,7 @@ console.log(btnRedClasses, btnBlueClasses)
 - [x] Define reusable variables, design tokens, or components.
 - [x] Define styles with a [JS Style Object](https://www.w3schools.com/jsref/dom_obj_style.asp), a string of CSS, or a callback function** that returns either.
 - [ ] Runtime class generator.
-- [ ] 
+- [ ] Nested selector
 
 \** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
 
