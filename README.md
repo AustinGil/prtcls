@@ -48,7 +48,14 @@ console.log(btnRedClasses, btnBlueClasses)
 - Removes any duplicated CSS so you never have the same rules twice. The more your app grows, the more you save.
 - It has TypeScript support which provides intellisense to help know when you write something wrong.
 
-#### Features:
+## How it works
+
+The library accespt any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
+<!-- These classes are added to a CSS file  -->
+
+<!-- ## Configuration -->
+
+## Features:
 - [x] Famework agnostic.
 - [x] Supports [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 - [x] Supports media queries without duplication.
@@ -58,10 +65,3 @@ console.log(btnRedClasses, btnBlueClasses)
 - [ ] Nested selector
 
 \** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
-
-## How it works
-
-The library accespt any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
-<!-- These classes are added to a CSS file  -->
-
-<!-- ## Configuration -->
