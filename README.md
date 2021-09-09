@@ -44,6 +44,7 @@ console.log(btnRedClasses, btnBlueClasses)
 #### Benefits:
 - If you know CSS, you already know how to use the library. Just pass that into the funciton.
 - You can use any valid CSS that you want. You don't have to work within a limited set (unless you want to).
+- There are no class names to memorize, and you no longer have to spend time thinking of what to call your class names.
 - All the runtime dependencies gets transpiled away which means your app loads faster and no flash of unstyled content.
 - Removes any duplicated CSS so you never have the same rules twice. The more your app grows, the more you save.
 - It has TypeScript support which provides intellisense to help know when you write something wrong.
