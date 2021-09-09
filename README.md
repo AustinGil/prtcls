@@ -51,7 +51,7 @@ console.log(btnRedClasses, btnBlueClasses)
 
 ## How it works
 
-The library accespt any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
+The library accepts any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
 <!-- These classes are added to a CSS file  -->
 
 <!-- ## Configuration -->
