@@ -2,7 +2,7 @@
 
 An atomic CSS-in-JS library with zero runtime overhead and CSS deduplication.
 
-**\*\*This project is currently available to [sponsors](https://github.com/sponsors/AustinGil) until I reach 50 sponsors. After that, I will make the project publicly available.\*\***
+**This project is currently available to [sponsors](https://github.com/sponsors/AustinGil) until I reach 50 sponsors. After that, I will make the project publicly available.**
 
 Before transpiling:
 ```js
@@ -65,4 +65,4 @@ The library accepts any CSS as a JavaScript style object or a string. At build t
 - [ ] Nested selectors.
 - [ ] TypeScript support for config file.
 
-\** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
+** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).**
