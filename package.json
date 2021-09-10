@@ -1,0 +1,12 @@
+{
+  "name": "prtcls",
+  "description": "An atomic CSS-in-JS library with zero runtime overhead and CSS deduplication.",
+  "main": "index.js",
+  "scripts": {
+    "build:docs": "fiddly"
+  },
+  "author": "Austin Gil <hey@austingil.com>",
+  "devDependencies": {
+    "fiddly": "^0.9.1"
+  }
+}
