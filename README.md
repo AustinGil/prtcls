@@ -42,7 +42,7 @@ console.log(btnRedClasses, btnBlueClasses)
 ```
 
 #### Benefits:
-- If you know CSS, you already know how to use the library. Just pass that into the funciton.
+- It works with plain old CSS so you either know it already or you'll learn something useful even without this library.
 - You can use any valid CSS that you want. You don't have to work within a limited set (unless you want to).
 - All the runtime dependencies gets transpiled away which means your app loads faster and no flash of unstyled content.
 - Removes any duplicated CSS so you never have the same rules twice. The more your app grows, the more you save.
@@ -50,7 +50,7 @@ console.log(btnRedClasses, btnBlueClasses)
 
 ## How it works
 
-The library accespt any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
+The library accepts any CSS as a JavaScript style object or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
 <!-- These classes are added to a CSS file  -->
 
 <!-- ## Configuration -->
