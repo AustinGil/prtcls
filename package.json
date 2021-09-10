@@ -7,6 +7,6 @@
   },
   "author": "Austin Gil <hey@austingil.com>",
   "devDependencies": {
-    "fiddly": "^0.9.1"
+    "fiddly": "^0.10.0"
   }
 }
