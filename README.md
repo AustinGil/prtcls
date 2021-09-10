@@ -1,6 +1,6 @@
 # Particles CSS
 
-An atomic CSS-in-JS library with zero runtime overhead.
+An atomic CSS-in-JS library with zero runtime overhead and CSS deduplication.
 
 **\*\*This project is currently available to [sponsors](https://github.com/sponsors/AustinGil) until I reach 50 sponsors. After that, I will make the project publicly available.\*\***
 
