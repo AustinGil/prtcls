@@ -45,8 +45,10 @@ console.log(btnRedClasses, btnBlueClasses)
 - It works with plain old CSS so you either know it already or you'll learn something useful even without this library.
 - You can use any valid CSS that you want. You don't have to work within a limited set (unless you want to).
 - All the runtime dependencies gets transpiled away which means your app loads faster and no flash of unstyled content.
+- No need to waste time coming up with or remembering class names. 
 - Removes any duplicated CSS so you never have the same rules twice. The more your app grows, the more you save.
 - It has TypeScript support which provides intellisense to help know when you write something wrong.
+- Only includes the CSS you add to your project which means no unused CSS and faster build times.
 
 ## How it works
 
@@ -64,5 +66,66 @@ The library accepts any CSS as a JavaScript style object or a string. At build t
 - [ ] Runtime class generator.
 - [ ] Nested selectors.
 - [ ] TypeScript support for config file.
+- [ ] Plugin system.
+- [ ] Prefix support.
+- [ ] Support for custom class name generators.
+- [ ] Tagged templates literal + CSS syntax highlighting plugin.
 
 \** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
+
+## Installation
+
+Install the package from NPM: 
+
+```bash
+npm install --save-dev prtcls
+```
+
+Add the [babel](https://babeljs.io/) plugin to your config:
+
+```js
+const prtclsPlugin = require('prtcls/babel-plugin');
+
+module.exports = {
+  // ...
+  plugins: [
+    prtclsPlugin(),
+  ],
+};
+```
+
+That's it!
+
+## Usage
+
+```js
+const classList = getAtomicClasses({
+  color: 'purple',
+  padding: '.5rem',
+})
+```
+
+```js
+const classList = getAtomicClasses(`
+  color: purple;
+  padding: .5rem;
+`)
+```
+
+```js
+const classList = getAtomicClasses(() => {
+  return {
+    color: 'purple',
+    padding: '.5rem',
+  }
+})
+```
+
+```js
+const classList = getAtomicClasses(() => {
+  return `
+    color: purple;
+    padding: .5rem;
+  `
+})
+```

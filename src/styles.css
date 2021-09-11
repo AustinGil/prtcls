@@ -1,9 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap');
 
 body {
   font-family: 'Inter', sans-serif;
 }
-
-h1:not([id]) {
-  display: none;
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+}
+h1 {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
+header .logo {
+  max-width: 32rem;
 }
