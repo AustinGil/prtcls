@@ -4,7 +4,7 @@ An atomic CSS-in-JS library with zero runtime overhead and CSS deduplication.
 
 This is a project by [Austin Gil](https://austingil.com). If you want to follow the journey, [sign up for my newsletter](https://austingil.com/newsletter). You can also [follow me on Twitter](https://twitter.com/Stegosource) or [star this project on GitHub](https://github.com/AustinGil/prtcls).
 
-**\*\*This project is currently available to [sponsors](https://github.com/sponsors/AustinGil) until I reach 50 sponsors. After that, I will make the project publicly available.\*\***
+**\*\*This project is currently available to [sponsors](https://github.com/sponsors/AustinGil). After I reach 50 sponsors I will make it publicly available.\*\***
 
 Before transpiling:
 ```js
