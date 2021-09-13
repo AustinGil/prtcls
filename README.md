@@ -57,12 +57,13 @@ The library accepts any CSS as a [JavaScript style object](https://www.w3schools
 <!-- These classes are added to a CSS file  -->
 
 <!-- ## Configuration -->
-## Installation
+<!-- ## Installation -->
 
-Install the package from NPM: 
+<!-- Install the package from NPM: 
 ```bash
 npm install prtcls
-```
+``` -->
+## Setup
 
 Add the [babel](https://babeljs.io/) plugin to your config:
 ```js
