@@ -50,6 +50,7 @@ console.log(btnRedClasses, btnBlueClasses)
 - It has TypeScript support which provides intellisense to help know when you write something wrong.
 - Only includes the CSS you add to your project which means no unused CSS and faster build times.
 - With themes, you can define variables and/or collections of styles ("component") to reuse or extend.
+- Atomic styles means there is no need for scoping styles. Just add the ones you need without the drama.
 
 ## How it works
 
@@ -67,13 +68,9 @@ npm install prtcls
 
 Add the [babel](https://babeljs.io/) plugin to your config:
 ```js
-const prtclsPlugin = require('prtcls/babel-plugin');
-
 module.exports = {
   // ...
-  plugins: [
-    prtclsPlugin(),
-  ],
+  plugins: ['prtcls/babel.cjs'],
 };
 ```
 
@@ -83,6 +80,50 @@ import 'prtcls/prtcls.css'
 ```
 
 That's it!
+
+The above steps works for Vue.js projects using version 2 and 3.
+
+For [Create React App](https://create-react-app.dev/) users, it's a bit more involed as they do not allow you to modify the Babel configuration. You can eject, but it's not recommended. So instead we can use the [`customize-cra`](https://github.com/arackaf/customize-cra) and [`react-app-rewired`](https://github.com/haykerp/react-app-rewired) packages to do so.
+
+Install those dependencies:
+
+```bash
+yarn add --dev react-app-rewired customize-cra
+```
+
+Modify your npm scripts to use `react-app-rewired`
+
+```diff
+{
+  "scripts": {
+-   "start": "react-scripts start",
+-   "build": "react-scripts build",
+-   "test": "react-scripts test",
+-   "eject": "react-scripts eject"
++   "start": "react-app-rewired start",
++   "build": "react-app-rewired build",
++   "test": "react-app-rewired test",
++   "eject": "react-app-rewired eject"
+  },
+  "devDependencies": {
++   "customize-cra": "^1.0.0",
++   "react-app-rewired": "^2.1.8"
+  }
+}
+```
+
+Add a `config-overrides.js` file to the root of your project to add the babel plugin:
+
+```js
+const {
+  override,
+  addBabelPlugin,
+} = require("customize-cra");
+
+module.exports = override(
+  addBabelPlugin('prtcls/babel.cjs')
+)
+```
 
 ## Usage
 
