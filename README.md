@@ -215,7 +215,7 @@ const classList = css(() => {
 })
 ```
 ## Features:
-- [x] Famework agnostic.
+- [x] Framework agnostic.
 - [x] Supports [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 - [x] Supports media queries without duplication.
 - [x] Define reusable variables, design tokens, or components.
