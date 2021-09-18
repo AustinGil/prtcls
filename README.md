@@ -1,8 +1,8 @@
 # Particles CSS
 
-An Atomic CSS-in-JS library with zero runtime overhead and CSS deduplication.
+**This project is currently private. If you want to follow the journey, [sign up for my newsletter](https://austingil.com/newsletter). You can also [follow me on Twitter](https://twitter.com/Stegosource) or [star this project on GitHub](https://github.com/AustinGil/prtcls).**
 
-This is a project by [Austin Gil](https://austingil.com) and is currently private. If you want to follow the journey, [sign up for my newsletter](https://austingil.com/newsletter). You can also [follow me on Twitter](https://twitter.com/Stegosource) or [star this project on GitHub](https://github.com/AustinGil/prtcls).
+An Atomic CSS-in-JS library with zero runtime overhead and CSS deduplication. Built by [Austin Gil](https://austingil.com).
 
 Before transpiling you pass CSS rules to the `css()` function, which returns a string of classes. The `prtcls/styles.css` file is empty:
 ```js
@@ -134,7 +134,7 @@ import 'prtcls/styles.css'
 
 The library is not currently available within Single File Component templates. For the Options API, computed properties work well:
 
-```vue
+```html
 <template>
   <div :class="classes">
     Example
@@ -154,7 +154,7 @@ export default {
 ```
 Or with the Composition API:
 
-```vue
+```html
 <template>
   <div :class="classes">
     Example
