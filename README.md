@@ -132,6 +132,49 @@ Include the generated stylesheet somewhere in your project:
 import 'prtcls/styles.css'
 ```
 
+The library is not currently available within Single File Component templates. For the Options API, computed properties work well:
+
+```vue
+<template>
+  <div :class="classes">
+    Example
+  </div>
+</template>
+<script>
+import { css } from 'prtcls'
+
+const classes = css('text-align: center')
+
+export default {
+  computed: {
+    classes: () => classes;
+  }
+}
+</script>
+```
+Or with the Composition API:
+
+```vue
+<template>
+  <div :class="classes">
+    Example
+  </div>
+</template>
+<script>
+import { css } from 'prtcls'
+
+const classes = css('text-align: center')
+
+export default {
+  setup() {
+    return {
+      classes: classes
+    }
+  }
+}
+</script>
+```
+
 ### Create React App
 
 
@@ -175,6 +218,22 @@ const {
 module.exports = override(
   addBabelPlugin('prtcls/babel.cjs')
 )
+```
+
+In any React component:
+```jsx
+import { css } from 'prtcls'
+
+const className = css('text-align: center')
+
+export default function() {
+  return (
+    <div className={className}>
+      Example
+    </div>
+  );
+};
+
 ```
 
 ## Usage
