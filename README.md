@@ -4,32 +4,31 @@ An Atomic CSS-in-JS library with zero runtime overhead and CSS deduplication.
 
 This is a project by [Austin Gil](https://austingil.com) and is currently private. If you want to follow the journey, [sign up for my newsletter](https://austingil.com/newsletter). You can also [follow me on Twitter](https://twitter.com/Stegosource) or [star this project on GitHub](https://github.com/AustinGil/prtcls).
 
-Before transpiling:
+Before transpiling you pass CSS rules to the `css()` function, which returns a string of classes. The `prtcls/styles.css` file is empty:
 ```js
 // your JavaScript file
-import { getAtomicClasses } from 'prtcls'
-const btnRedClasses = getAtomicClasses(`
+import { css } from 'prtcls'
+const btnRed = css(`
   padding: 10px;
   background: red;
 `)
-const btnBlueClasses = getAtomicClasses(`
+const btnBlue = css(`
   padding: 10px;
   background: blue;
 `)
-console.log(btnRedClasses, btnBlueClasses)
 ```
 ```css
-/* prtcls.css */
+/* prtcls/styles.css */
 ```
-After transpiling:
+
+After transpiling, the library's footprint is removed and replaced with just the static string of classes. The rules are injected into `prtcls/styles.css` without any duplication:
 ```js
 // your JavaScript file
-const btnRedClasses = 'p_10px bg_red'
-const btnBlueClasses = 'p_10px bg_blue'
-console.log(btnRedClasses, btnBlueClasses)
+const btnRed = 'p_10px bg_red'
+const btnBlue = 'p_10px bg_blue'
 ```
 ```css
-/* prtcls.css */
+/* prtcls/styles.css */
 .p_10px {
   padding: 10px;
 }
@@ -42,10 +41,10 @@ console.log(btnRedClasses, btnBlueClasses)
 ```
 
 #### Benefits:
-- It works with plain old CSS. If you know CSS already, you're set. If not, you'll learn something useful besides library-specific syntax.
-- You can use any valid CSS that you want. There are no limitations (unless you want to create some with themes).
+- It works with plain CSS. If you know CSS, you're set. No need to learn some library-specific syntax.
+- Because it's CSS, there are no styling limitations. You can, however, create specific design tokens.
 - All the runtime dependencies get transpiled away so your app loads faster and doesn't have a flash of unstyled content.
-- You spend less time thinking of new class names, and less energy remembering them. 
+- You don't have to remember a list of classes available, or come up with class naming conventions. 
 - Any duplicated CSS style gets removes so you never have the same rules twice. The more your app grows, the more you save.
 - It has TypeScript support which provides intellisense to help know when you write something wrong.
 - Only includes the CSS you add to your project which means no unused CSS and faster build times.
@@ -66,22 +65,75 @@ npm install prtcls
 ``` -->
 ## Setup
 
-Add the [babel](https://babeljs.io/) plugin to your config:
+### Babel
+
+Add the [babel](https://babeljs.io/) plugin to your babel config:
 ```js
 module.exports = {
-  // ...
   plugins: ['prtcls/babel.cjs'],
 };
 ```
 
 Include the generated stylesheet somewhere in your project:
 ```js main.js
-import 'prtcls/prtcls.css'
+import 'prtcls/styles.css'
 ```
 
-That's it!
+### Webpack
 
-The above steps works for Vue.js projects using version 2 and 3.
+Install [`babel-loader`](https://webpack.js.org/loaders/babel-loader/)
+
+```bash
+npm install --save-dev babel-loader
+```
+
+Add the loader to your webpack config:
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        use: {
+          loader: 'babel-loader',
+        }
+      }
+    ]
+  }
+}
+```
+
+Add the [babel](https://babeljs.io/) plugin to your babel config:
+```js
+module.exports = {
+  plugins: ['prtcls/babel.cjs'],
+};
+```
+
+Include the generated stylesheet somewhere in your project:
+```js main.js
+import 'prtcls/styles.css'
+```
+
+### Vue CLI
+
+These steps work for Vue.js projects using version 2 and 3.
+
+Add the [babel](https://babeljs.io/) plugin to your babel config:
+```js
+module.exports = {
+  plugins: ['prtcls/babel.cjs'],
+};
+```
+
+Include the generated stylesheet somewhere in your project:
+```js main.js
+import 'prtcls/styles.css'
+```
+
+### Create React App
+
 
 For [Create React App](https://create-react-app.dev/) users, it's a bit more involed as they do not allow you to modify the Babel configuration. You can eject, but it's not recommended. So instead we can use the [`customize-cra`](https://github.com/arackaf/customize-cra) and [`react-app-rewired`](https://github.com/haykerp/react-app-rewired) packages to do so.
 
@@ -130,7 +182,7 @@ module.exports = override(
 JavaScript Style Object:
 
 ```js
-const classList = getAtomicClasses({
+const classList = css({
   color: 'purple',
   padding: '.5rem',
 })
@@ -139,7 +191,7 @@ const classList = getAtomicClasses({
 String:
 
 ```js
-const classList = getAtomicClasses(`
+const classList = css(`
   color: purple;
   padding: .5rem;
 `)
@@ -147,7 +199,7 @@ const classList = getAtomicClasses(`
 
 Callback function returning a Style Object or string:
 ```js
-const classList = getAtomicClasses(() => {
+const classList = css(() => {
   return {
     color: 'purple',
     padding: '.5rem',
@@ -155,7 +207,7 @@ const classList = getAtomicClasses(() => {
 })
 ```
 ```js
-const classList = getAtomicClasses(() => {
+const classList = css(() => {
   return `
     color: purple;
     padding: .5rem;
