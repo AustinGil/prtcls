@@ -40,16 +40,22 @@ const btnBlue = 'p_10px bg_blue'
 }
 ```
 
-#### Benefits:
-- It works with plain CSS. If you know CSS, you're set. No need to learn some library-specific syntax.
-- Because it's CSS, there are no styling limitations. You can, however, create specific design tokens.
-- All the runtime dependencies get transpiled away so your app loads faster and doesn't have a flash of unstyled content.
-- You don't have to remember a list of classes available, or come up with class naming conventions. 
-- Any duplicated CSS style gets removes so you never have the same rules twice. The more your app grows, the more you save.
-- It has TypeScript support which provides intellisense to help know when you write something wrong.
-- Only includes the CSS you add to your project which means no unused CSS and faster build times.
-- With themes, you can define variables and/or collections of styles ("component") to reuse or extend.
-- Atomic styles means there is no need for scoping styles. Just add the ones you need without the drama.
+## Benefits
+
+### Plain CSS
+The library uses plain old CSS which has a lot of benefits. Developers that already know CSS won't need to learn anything new. If you don't know CSS, you'll learn it, and that will be valuable whether you use this library or not. You can copy and paste CSS to and from any other project. And because it's CSS, you don't have to work within limited rules.
+
+### Design Tokens
+Within the configuration file, you can provide design tokens that can be referenced in your CSS. These design tokens allow you to define variables or collections of styles to reuse or extend. For example, maybe you want to maintain a limited set of spacing options to choose from. Or maybe you want to define the default styles for buttons, then extend them for different variations.
+
+### Less Thinking
+The library handles generating classes for you, which means you don't have to bother remembering a list of classes. You also don't have to spend time thinking of what to name your classes, or come up with complicated naming conventions. TypeScript support also helps provide autocomplete suggestions for CSS rules or available design tokens you've defined.
+
+### Performance
+Runtime JavaScript is one of the biggest deteriorators to performance. This project strips out the runtime JavaScript and replaces it with the static string of atomic CSS classes. Your styles are added to a CSS file that only inlcudes the styles you use, meaning there is no unused CSS in the final bundle, you don't rely on a purge step, and you can avoid flash of unstyled content.
+
+### Atomic Classes
+Atomic classes you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles as needed. And it makes it's safe to add or remove styles without worrying about breaking other parts of your application.
 
 ## How it works
 
@@ -238,7 +244,7 @@ export default function() {
 
 ## Usage
 
-JavaScript Style Object:
+### JavaScript Style Object
 
 ```js
 const classList = css({
@@ -247,7 +253,7 @@ const classList = css({
 })
 ```
 
-String:
+### String
 
 ```js
 const classList = css(`
@@ -256,36 +262,62 @@ const classList = css(`
 `)
 ```
 
-Callback function returning a Style Object or string:
+### Callback functions
+
 ```js
-const classList = css(() => {
+const classList = css((t) => {
   return {
-    color: 'purple',
-    padding: '.5rem',
+    padding: '10px'
+    color: t.colors.primary,
   }
 })
 ```
 ```js
-const classList = css(() => {
+const classList = css((t) => {
   return `
-    color: purple;
-    padding: .5rem;
+    padding: 10px;
+    color: ${t.colors.primary};
   `
 })
 ```
+For more details on the callback function parameters, see the configuration section below.
+
+## Configuration
+To take advantage of the design tokens feature, you will need to create a configuration file. In your project root, add a file called `.prtcls.config.js`. It should export an object with a `tokens` property. Anything in this object will be available to the callback function syntax.
+
+Assuming your config file looked something like this:
+```js
+module.exports = {
+  tokens: {
+    size: {
+      8: '.5rem'
+    }
+  }
+}
+```
+You could use a callback function like this:
+```js
+const classList = css((t) => {
+  return {
+    padding: t.size[8],
+  }
+})
+```
+The callback function uses TypeScript to provide intellisense for whatever you put in there.
+
 ## Features:
 - [x] Framework agnostic.
 - [x] Supports [pseudo-classes and pseudo-elements](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 - [x] Supports media queries without duplication.
 - [x] Define reusable variables, design tokens, or components.
 - [x] Define styles with a [JS Style Object](https://www.w3schools.com/jsref/dom_obj_style.asp), a string of CSS, or a callback function** that returns either.
+- [x] TypeScript support for config file.
 - [ ] Runtime class generator.
 - [ ] Nested selectors.
-- [ ] TypeScript support for config file.
 - [ ] Plugin system.
 - [ ] Prefix support.
 - [ ] Support for custom class name generators.
-- [ ] Tagged templates literal + CSS syntax highlighting plugin.
+- [ ] CSS syntax highlighting plugin.
 - [ ] Handling shorthand and longhand properties smartly.
 
 \** Callback functions are used to inject config options, but cannot depend on any runtime variables (yet).
