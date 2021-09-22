@@ -283,7 +283,7 @@ const classList = css((t) => {
 For more details on the callback function parameters, see the configuration section below.
 
 ### Variants 
-You can also target the following pseudoclasses and pseudoselectors:
+You can target the following pseudoclasses and pseudoselectors with the syntax `&:{variant}`:
 - before
 - after
 - hover
@@ -311,7 +311,7 @@ const classList1 = css({
 const classList2 = css(`
   color: purple;
   &:hover {
-    color: 'green';
+    color: green;
   }
 `)
 ```
@@ -331,9 +331,9 @@ const classList1 = css({
 const classList2 = css(`
   color: purple;
   @media only screen and (min-width: 576px) and (max-width: 768px): {
-    color: 'green';
+    color: green;
     &:hover {
-      color: 'red';
+      color: red;
     }
   }
 `)
