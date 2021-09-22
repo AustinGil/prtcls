@@ -52,10 +52,10 @@ Within the configuration file, you can provide design tokens that can be referen
 The library handles generating classes for you, which means you don't have to bother remembering a list of classes. You also don't have to spend time thinking of what to name your classes, or come up with complicated naming conventions. TypeScript support also helps provide autocomplete suggestions for CSS rules or available design tokens you've defined.
 
 ### Performance
-Runtime JavaScript is one of the biggest deteriorators to performance. This project strips out the runtime JavaScript and replaces it with the static string of atomic CSS classes. Your styles are added to a CSS file that only inlcudes the styles you use, meaning there is no unused CSS in the final bundle, you don't rely on a purge step, and you can avoid flash of unstyled content.
+Runtime JavaScript is one of the biggest deteriorators to performance. This project strips out the runtime JavaScript and replaces it with the static string of atomic CSS classes. Your styles are added to a CSS file that only includes the styles you use, meaning there is no unused CSS in the final bundle, you don't rely on a purge step, and you can avoid flash of unstyled content.
 
 ### Atomic Classes
-Atomic classes you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles as needed. And it makes it's safe to add or remove styles without worrying about breaking other parts of your application.
+Atomic classes you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles as needed. And it makes its safe to add or remove styles without worrying about breaking other parts of your application.
 
 ## How it works
 
