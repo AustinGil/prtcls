@@ -245,7 +245,7 @@ export default function() {
 ## Usage
 
 ### JavaScript Style Object
-
+If you want the benefits of TypeScript, using the Object or callback function returning an Object is the recommended approach.
 ```js
 const classList = css({
   color: 'purple',
@@ -281,6 +281,64 @@ const classList = css((t) => {
 })
 ```
 For more details on the callback function parameters, see the configuration section below.
+
+### Variants 
+You can also target the following pseudoclasses and pseudoselectors:
+- before
+- after
+- hover
+- focus
+- focus-within
+- focus-visible
+- active
+- disabled
+- visited
+- checked
+- first-child
+- last-child
+- required
+- valid
+- invalid
+- readonly
+
+```js
+const classList1 = css({
+  color: 'purple',
+  '&:hover': {
+    color: 'green',
+  }
+})
+const classList2 = css(`
+  color: purple;
+  &:hover {
+    color: 'green';
+  }
+`)
+```
+
+### Media Queries
+To target media queries, nest the styles your element needs within the media query block. You can even nest variants within media queries:
+```js
+const classList1 = css({
+  color: 'purple',
+  '@media only screen and (min-width: 576px) and (max-width: 768px)': {
+    color: 'green',
+    '&:hover': {
+      color: 'red',
+    },
+  },
+})
+const classList2 = css(`
+  color: purple;
+  @media only screen and (min-width: 576px) and (max-width: 768px): {
+    color: 'green';
+    &:hover {
+      color: 'red';
+    }
+  }
+`)
+```
+Note that it's recommended to reference media queries as design tokens to maintain consistency.
 
 ## Configuration
 To take advantage of the design tokens feature, you will need to create a configuration file. In your project root, add a file called `.prtcls.config.js`. It should export an object with a `tokens` property. Anything in this object will be available to the callback function syntax.
