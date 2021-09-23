@@ -54,8 +54,11 @@ The library handles generating classes for you, which means you don't have to bo
 ### Performance
 Runtime JavaScript is one of the biggest deteriorators to performance. This project strips out the runtime JavaScript and replaces it with the static string of atomic CSS classes. Your styles are added to a CSS file that only includes the styles you use, meaning there is no unused CSS in the final bundle, you don't rely on a purge step, and you can avoid flash of unstyled content.
 
+### Maintenance
+By co-locating styles with components, the maintenance process becomes much simpler. No more searching through a `/css` directory looking for the files you need to modify. If you ever remove a component from a project, the unique CSS for that component will also be removed, reducing the final build size without manually removing styles.
+
 ### Atomic Classes
-Atomic classes you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles as needed. And it makes its safe to add or remove styles without worrying about breaking other parts of your application.
+Atomic classes let you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles ad hoc. You can edit styles without worrying about breaking other parts of your application.
 
 ## How it works
 
