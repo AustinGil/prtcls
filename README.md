@@ -42,27 +42,30 @@ const btnBlue = 'p_10px bg_blue'
 
 ## Benefits
 
-### Plain CSS
-The library uses plain old CSS which has a lot of benefits. Developers that already know CSS won't need to learn anything new. If you don't know CSS, you'll learn it, and that will be valuable whether you use this library or not. You can copy and paste CSS to and from any other project. And because it's CSS, you don't have to work within limited rules.
+### Less To Learn
+The library uses plain old CSS which has a lot of benefits. Developers that already know CSS won't need to learn anything new. If you don't know CSS, you'll learn it, and that will be valuable whether you use this library or not. You can copy and paste CSS to and from any other project. And because it's CSS, you don't have to work within limited confines.
 
-### Design Tokens
-Within the configuration file, you can provide design tokens that can be referenced in your CSS. These design tokens allow you to define variables or collections of styles to reuse or extend. For example, maybe you want to maintain a limited set of spacing options to choose from. Or maybe you want to define the default styles for buttons, then extend them for different variations.
+### Less To Think About
+The library handles generating classes for you. That means you don't have to come up with the "best" class name for some `div`, you don't have to adopt complicated naming conventions, and you don't need to remember a long list of classes. TypeScript support also provides autocomplete suggestions for CSS rules or available design tokens you've defined.
 
-### Less Thinking
-The library handles generating classes for you, which means you don't have to bother remembering a list of classes. You also don't have to spend time thinking of what to name your classes, or come up with complicated naming conventions. TypeScript support also helps provide autocomplete suggestions for CSS rules or available design tokens you've defined.
+### Better Performance
+Runtime JavaScript is one of the biggest deteriorators to performance. This project lets you define your styles in JavaScript then replaces them static string of atomic CSS classes at build time. Your styles are added to a CSS file that only includes the styles you use, meaning there is no unused CSS in the final bundle, you don't depend on a purge step, and you can avoid flash of unstyled content.
 
-### Performance
-Runtime JavaScript is one of the biggest deteriorators to performance. This project strips out the runtime JavaScript and replaces it with the static string of atomic CSS classes. Your styles are added to a CSS file that only includes the styles you use, meaning there is no unused CSS in the final bundle, you don't rely on a purge step, and you can avoid flash of unstyled content.
+### Easier Maintenance
+By keeping styles with components, the maintenance process becomes much simpler. No more searching through a `/css` directory looking for the files you need to modify. If you ever remove a component from a project, the unique CSS for that component will also be removed, reducing the final build size without manually removing styles.
 
-### Maintenance
-By co-locating styles with components, the maintenance process becomes much simpler. No more searching through a `/css` directory looking for the files you need to modify. If you ever remove a component from a project, the unique CSS for that component will also be removed, reducing the final build size without manually removing styles.
+### Reusable Design Tokens
+With the configuration file you can provide design tokens that can be referenced in your CSS. These design tokens allow you to define variables or collections of styles to reuse or extend. For example, maybe you want to maintain a limited set of spacing options to choose from. Or maybe you want to define the default styles for buttons, then extend them for different variations.
 
-### Atomic Classes
+### Atomic CSS FTW!
 Atomic classes let you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles ad hoc. You can edit styles without worrying about breaking other parts of your application.
+
+<!-- ### Opinionated Defaults -->
 
 ## How it works
 
-The library accepts any CSS as a [JavaScript style object](https://www.w3schools.com/jsref/dom_obj_style.asp) or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. 
+The library accepts any CSS as a [JavaScript style object](https://www.w3schools.com/jsref/dom_obj_style.asp) or a string. At build time the library gets removed and those styles get turned into a string of corresponding classes based on their media query, pseudo selector, property, and value. The styles for the generated classes get injected into your static CSS files.
+
 <!-- These classes are added to a CSS file  -->
 
 <!-- ## Configuration -->
@@ -74,7 +77,22 @@ npm install prtcls
 ``` -->
 ## Setup
 
-### Babel
+Currently Particles CSS works as a Vite plugin. Please let me know if you'd like to see other tools supported. 
+
+### Vite
+
+Add the Vite plugin to your Vite config file (`.vite.config.js`):
+```js
+const Prtcls = require('prtcls/vite-plugin-prtcls')
+
+module.exports = {
+  plugins: [
+    Prtcls()
+  ]
+}
+```
+
+<!-- ### Babel
 
 Add the [babel](https://babeljs.io/) plugin to your babel config:
 ```js
@@ -244,6 +262,7 @@ export default function() {
 };
 
 ```
+-->
 
 ## Usage
 
