@@ -60,6 +60,8 @@ With the configuration file you can provide design tokens that can be referenced
 ### Atomic CSS FTW!
 Atomic classes let you to reuse the same styles throughout your application without duplicating CSS rules. As a result, your application can grow without increasing your CSS file size. Atomic styles also remove the need for scoped CSS because you can add or remove styles ad hoc. You can edit styles without worrying about breaking other parts of your application.
 
+### Sensible Defaults
+
 <!-- ### Opinionated Defaults -->
 
 ## How it works
@@ -83,9 +85,9 @@ Currently Particles CSS works as a Vite plugin. Please let me know if you'd like
 
 Add the Vite plugin to your Vite config file (`.vite.config.js`):
 ```js
-const Prtcls = require('prtcls/vite-plugin-prtcls')
+import Prtcls from 'prtcls/dist/vite-plugin-prtcls'
 
-module.exports = {
+export default {
   plugins: [
     Prtcls()
   ]
