@@ -367,6 +367,8 @@ Note that it's recommended to reference media queries as design tokens to mainta
 ## Configuration
 To take advantage of the design tokens feature, you will need to create a configuration file. In your project root, add a file called `.prtcls.config.js`. It should export an object with a `tokens` property. Anything in this object will be available to the callback function syntax.
 
+**IMPORTANT: This file must use the CommonJS exports syntax**
+
 Assuming your config file looked something like this:
 ```js
 module.exports = {
